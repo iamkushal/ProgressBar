@@ -22,14 +22,16 @@ abstract public class BaseActivity extends AppCompatActivity {
 
     }
 
-    private void initProgressDialog() {
-       imageView = (ImageView) findViewById(R.id.image);
+    public void initProgressDialog() {
+        imageView = findViewById(R.id.image);
 
     }
 
-    public void showProgress(){
+    public void showProgressBar() {
 
-        Glide.with(this).load(R.drawable.cc).into(imageView);
+        Glide.with(this)
+             .load(R.drawable.cc)
+             .into(imageView);
     }
 
     abstract int getLayoutId(int id);

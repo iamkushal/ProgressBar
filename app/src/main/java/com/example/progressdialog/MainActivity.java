@@ -2,6 +2,7 @@ package com.example.progressdialog;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
@@ -15,19 +16,24 @@ import com.bumptech.glide.Glide;
 public class MainActivity extends BaseActivity {
 
     Button button;
-    ImageView imageView;
+
 
     @Override
     public void initView() {
-        super.initView();
-        final ImageView imageView = (ImageView) findViewById(R.id.image);
-        Button button = (Button) findViewById(R.id.testButton);
+//        super.initView();
+        initProgressDialog();
+        button = findViewById(R.id.testButton);
+/*
+        final ImageView imageView = findViewById(R.id.image);
+*/
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                showProgress();
-//                Glide.with(MainActivity.this).load(R.drawable.cc).into(imageView);
+                Intent intent = new Intent(MainActivity.this, Test.class);
+                startActivity(intent);
+/*                showProgressBar();
+//                Glide.with(MainActivity.this).load(R.drawable.cc).into(imageView);*/
             }
         });
     }
