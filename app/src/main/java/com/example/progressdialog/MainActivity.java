@@ -12,41 +12,29 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
-    int duration = 1200;
-    AnimationDrawable animationDrawable;
     Button button;
     ImageView imageView;
 
-
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
+    public void initView() {
+        super.initView();
         final ImageView imageView = (ImageView) findViewById(R.id.image);
         Button button = (Button) findViewById(R.id.testButton);
-
-//        RotateAnimation rotateAnimation = new RotateAnimation(0,360,
-//                Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
-//
-//        rotateAnimation.setDuration(duration);
-//        rotateAnimation.setRepeatCount(Animation.INFINITE);
-//        imageView.startAnimation(rotateAnimation);
-
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Glide.with(MainActivity.this).load(R.drawable.cc).into(imageView);
+                showProgress();
+//                Glide.with(MainActivity.this).load(R.drawable.cc).into(imageView);
             }
         });
+    }
 
-
-
-
+    @Override
+    int getLayoutId(int id) {
+        return R.layout.activity_main;
     }
 
 }
